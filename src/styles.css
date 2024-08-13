@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 160px;
+}
+
+.circular-chart .circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circular-chart .circle {
+  fill: none;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+.circular-chart.pink .circle {
+  stroke: #ff69b4;
+}
+
+.circular-chart .percentage {
+  fill: #666;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
