@@ -12,7 +12,7 @@ const projects = [
     name: "OpenJira",
     description:
       "Sistema de gestión de tareas inspirado en Jira, desarrollado con Next.js y TypeScript para una mejor organización de proyectos.",
-    img: "img/proyectos/OpenJira.png",
+    img: "img/proyectos/Openjira.png",
     url: "https://next-open-jira-rho.vercel.app/",
   },
   {
@@ -26,14 +26,14 @@ const projects = [
     name: "Proyecto con CSS",
     description:
       "Página web demostrativa que exhibe el uso avanzado de CSS para crear layouts atractivos y responsivos.",
-    img: "img/proyectos/proyectoCss.png",
+    img: "img/proyectos/ProyectoCss.png",
     url: "https://page-post-3-1e6rzc3qc-karlacabanas01s-projects.vercel.app/",
   },
   {
     name: "Skeleton",
     description:
       "Proyecto de ejemplo que muestra cómo crear y utilizar componentes Skeleton en aplicaciones React para mejorar la experiencia del usuario durante la carga de contenido.",
-    img: "img/proyectos/skeleton.png",
+    img: "img/proyectos/Skeleton.png",
     url: "https://skeleton-ten-rho.vercel.app/",
   },
 ];
