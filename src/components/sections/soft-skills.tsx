@@ -11,22 +11,24 @@ const softSkills = [
 
 const SoftSkills: React.FC = () => {
   return (
-    <section id="soft-skills" className="text-center mt-36">
-      <h2 className="text-3xl font-bold mb-4 text-custom-pink">SOFT SKILLS</h2>
-      <div className="flex flex-wrap justify-center gap-8">
+    <section id="soft-skills" className="text-center py-16 bg-custom-white">
+      <h2 className="text-4xl font-bold mb-8 text-custom-pink">SOFT SKILLS</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {softSkills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center w-1/4 p-4 border border-gray-300 shadow-lg rounded-lg bg-white transition transform hover:scale-105"
+            className="flex flex-col items-center justify-center p-6 border border-gray-200 shadow-md rounded-lg bg-white transition transform hover:scale-105 hover:shadow-lg"
           >
-            <div className="soft-skill">
+            <div className="flex items-center justify-center w-24 h-24 mb-4 rounded-full bg-gray-100">
               <img
                 src={skill.img}
                 alt={skill.name}
-                className="w-50 h-40 mb-4 rounded-full"
+                className="w-20 h-20 rounded-full object-cover"
               />
-              <h3 className="text-xl font-bold">{skill.name}</h3>
             </div>
+            <h3 className="text-xl font-bold text-custom-black">
+              {skill.name}
+            </h3>
           </div>
         ))}
       </div>
