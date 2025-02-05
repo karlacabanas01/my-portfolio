@@ -40,12 +40,20 @@ const projects = [
     url: "https://skeleton-ten-rho.vercel.app/",
     category: "Frontend",
   },
+  {
+    name: "Harry Potter App",
+    description:
+      "Bienvenido a My Harry Potter App, una aplicación web interactiva inspirada en el universo de Harry Potter. Este proyecto ha sido desarrollado con Next.js 14, React 18, TypeScript y Tailwind CSS, ofreciendo una experiencia mágica y moderna para los fanáticos de la saga.",
+    img: "img/proyectos/harry-potter.png",
+    url: "https://my-harry-potter-app.vercel.app/",
+    category: "Frontend",
+  },
 ];
 
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="text-center py-16 bg-custom-white">
-      <h2 className="text-4xl font-bold mb-8 text-custom-pink">PROJECTS</h2>
+      <h2 className="text-4xl font-bold mb-8 text-custom-pink">PROYECTOS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {projects.map((project) => (
           <a

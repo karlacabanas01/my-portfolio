@@ -1,7 +1,12 @@
-import React from "react";
-import { SkillCard } from "../common/skills-card";
+import { FaCode, FaServer, FaTools } from "react-icons/fa";
 
-const frontendSkills = [
+interface Skill {
+  name: string;
+  level: "Basic" | "Intermediate" | "Advanced";
+  percentage: number;
+}
+
+const frontendSkills: Skill[] = [
   { name: "React", level: "Intermediate", percentage: 60 },
   { name: "Next.js", level: "Intermediate", percentage: 60 },
   { name: "Tailwind CSS", level: "Advanced", percentage: 80 },
@@ -11,7 +16,7 @@ const frontendSkills = [
   { name: "Material UI", level: "Intermediate", percentage: 60 },
 ];
 
-const backendSkills = [
+const backendSkills: Skill[] = [
   { name: "NodeJS", level: "Basic", percentage: 30 },
   { name: "Docker", level: "Intermediate", percentage: 50 },
   { name: "MongoDB", level: "Intermediate", percentage: 50 },
@@ -20,7 +25,7 @@ const backendSkills = [
   { name: "Laravel", level: "Basic", percentage: 20 },
 ];
 
-const toolsSkills = [
+const toolsSkills: Skill[] = [
   { name: "Git", level: "Advanced", percentage: 80 },
   { name: "Jest", level: "Basic", percentage: 30 },
   { name: "Cypress", level: "Basic", percentage: 30 },
@@ -31,33 +36,64 @@ const toolsSkills = [
   { name: "Postman", level: "Intermediate", percentage: 60 },
 ];
 
-const HardSkills: React.FC = () => {
+const SkillCategory: React.FC<{
+  title: string;
+  skills: Skill[];
+  icon: JSX.Element;
+}> = ({ title, skills, icon }) => {
   return (
-    <section id="skills" className="text-center mt-8">
-      <h2 className="text-4xl font-bold mb-4 text-custom-pink">HARD SKILLS</h2>
-
-      <h3 className="text-2xl font-semibold mb-4">Frontend</h3>
-      <div className="flex justify-center items-center gap-4 flex-wrap">
-        {frontendSkills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
-        ))}
+    <div className="p-6 bg-white border border-gray-200 shadow-md rounded-lg w-full">
+      <div className="flex items-center justify-center gap-2 mb-4">
+        {icon}
+        <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
       </div>
 
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Backend</h3>
-      <div className="flex justify-center items-center gap-4 flex-wrap">
-        {backendSkills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
+      <div className="space-y-3">
+        {skills.map((skill) => (
+          <div key={skill.name}>
+            <div className="flex justify-between text-gray-800 font-medium">
+              <p>{skill.name}</p>
+              <p className="text-sm text-gray-600">{skill.level}</p>
+            </div>
+            <div className="w-full bg-gray-200 h-2 rounded-full">
+              <div
+                className="bg-custom-pink h-2 rounded-full"
+                style={{ width: `${skill.percentage}%` }}
+              ></div>
+            </div>
+          </div>
         ))}
       </div>
+    </div>
+  );
+};
 
-      <h3 className="text-2xl font-semibold mb-4 mt-8">Herramientas</h3>
-      <div className="flex justify-center items-center gap-4 flex-wrap">
-        {toolsSkills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
-        ))}
+const SkillsSection: React.FC = () => {
+  return (
+    <section className="w-full py-10 px-2.5 flex flex-col items-center">
+      <h2 className="text-3xl font-bold text-custom-pink text-center mb-8">
+        Mis Habilidades
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+        <SkillCategory
+          title="Front-end"
+          skills={frontendSkills}
+          icon={<FaCode className="text-2xl text-blue-500" />}
+        />
+        <SkillCategory
+          title="Back-end"
+          skills={backendSkills}
+          icon={<FaServer className="text-2xl text-green-500" />}
+        />
+        <SkillCategory
+          title="Herramientas"
+          skills={toolsSkills}
+          icon={<FaTools className="text-2xl text-yellow-500" />}
+        />
       </div>
     </section>
   );
 };
 
-export default HardSkills;
+export default SkillsSection;

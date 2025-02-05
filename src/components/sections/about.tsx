@@ -1,35 +1,56 @@
 import React from "react";
+import TypingTitle from "../effects/typing-effect";
+import { Link } from "react-scroll";
 
 const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="flex flex-col-reverse md:flex-row justify-center items-center text-center md:text-left py-12 px-4 md:px-16 bg-custom-white"
+      className="relative flex flex-col md:flex-row justify-between items-center text-center md:text-left py-12 px-4 md:px-16 bg-custom-white"
     >
-      <div className="md:w-1/2">
+      {/* Contenedor de texto (50% del ancho en pantallas grandes) */}
+      <div className="md:w-1/2 pb-16">
         <h1 className="text-4xl font-bold mb-4 text-custom-pink">Conóceme</h1>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-          👩‍💻 ¡Hola! Soy Karla
-        </h2>
+        <TypingTitle />
         <p className="text-lg md:text-xl leading-relaxed text-custom-text-dark">
-          Desarrolladora de software con 2 años de experiencia en React,
-          TypeScript y Tailwind CSS. Me apasiona crear aplicaciones web
-          optimizadas y aprender continuamente. 🌟
+          Actualmente, cuento con <b>2 años de experiencia</b> como
+          desarrolladora frontend, especializándome en{" "}
+          <b>React, TypeScript y Tailwind CSS</b>. Me apasiona crear
+          aplicaciones web optimizadas y seguir aprendiendo. Actualmente, estoy
+          profundizando en <b>Node.js</b> ⭐.
         </p>
-        <a
-          href="#projects"
-          className="inline-block bg-custom-pink text-white font-bold py-2 px-4 rounded-full mt-4 hover:bg-pink-600"
+
+        <Link
+          to="projects"
+          smooth={true}
+          duration={800}
+          offset={-50}
+          className="cursor-pointer inline-block bg-custom-pink text-white font-bold py-2 px-4 rounded-full mt-4 hover:bg-pink-600"
         >
           Ver Proyectos
-        </a>
+        </Link>
       </div>
 
-      <div className="flex justify-center md:justify-end md:w-1/2 mb-8 md:mb-0">
+      <div className="md:w-1/2 flex justify-center md:justify-end">
         <img
           src="img/profile.jpeg"
           alt="Karla Cabañas"
           className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg border-4 border-custom-pink"
         />
+      </div>
+
+      {/* Barra SVG al final */}
+      <div className="absolute bottom-0 left-0 w-full">
+        <svg
+          viewBox="0 0 1440 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 43.9999C106.667 43.9999 213.333 7.99994 320 7.99994C426.667 7.99994 533.333 43.9999 640 43.9999C746.667 43.9999 853.333 7.99994 960 7.99994C1066.67 7.99994 1173.33 43.9999 1280 43.9999C1386.67 43.9999 1440 19.0266 1440 9.01329V100H0V43.9999Z"
+            className="fill-current text-gray-300"
+          ></path>
+        </svg>
       </div>
     </section>
   );

@@ -67,3 +67,7 @@ img {
     stroke-dasharray: 0, 100;
   }
 }
+.bg-topographic {
+  background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='%23aaaaaa' stroke-width='2' d='M10,100 C50,50 150,150 200,100 S300,50 350,100 S450,150 500,100'/%3E%3Cpath fill='none' stroke='%23aaaaaa' stroke-width='2' d='M-50,250 C0,200 100,300 150,250 S250,200 300,250 S400,300 450,250'/%3E%3Cpath fill='none' stroke='%23aaaaaa' stroke-width='2' d='M30,400 C80,350 180,450 230,400 S330,350 380,400 S480,450 530,400'/%3E%3C/svg%3E");
+  background-size: 400px 400px;
+}

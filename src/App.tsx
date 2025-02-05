@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/common/header";
 import About from "./components/sections/about";
-import HardSkills from "./components/sections/hard-skills";
+import HardSkills from "./components/sections/skills";
 import SoftSkills from "./components/sections/soft-skills";
 import Projects from "./components/sections/proyects";
 import Contact from "./components/sections/contact";
@@ -12,10 +12,11 @@ const App: React.FC = () => {
     <div className="text-black">
       <Header />
       <main className="container mx-auto py-8">
-        <About />
-        <hr className="my-5 border-t border-gray-300 w-full" />
+        <div>
+          <About />
+        </div>
+
         <HardSkills />
-        <SoftSkills />
         <Projects />
         <Contact />
       </main>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 const Header: React.FC = () => {
   return (
@@ -6,36 +7,38 @@ const Header: React.FC = () => {
       <nav className="container mx-auto flex justify-between items-center">
         <ul className="flex space-x-4">
           <li>
-            <a
-              href="#about"
-              className="text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
+            <Link
+              to="about"
+              smooth={true}
+              duration={800}
+              offset={-50}
+              className="cursor-pointer text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
             >
               Sobre Mi
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#skills"
-              className="text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
+            <Link
+              to="skills"
+              smooth={true}
+              duration={800}
+              offset={-50}
+              className="cursor-pointer text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
             >
-              Hard Skills
-            </a>
+              Mis habilidades
+            </Link>
           </li>
+
           <li>
-            <a
-              href="#soft-skills"
-              className="text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
+            <Link
+              to="projects"
+              smooth={true}
+              duration={800}
+              offset={-50}
+              className="cursor-pointer text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
             >
-              Soft Skills
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              className="text-white bg-transparent hover:bg-custom-pink px-4 py-3 rounded"
-            >
-              Projects
-            </a>
+              Proyectos
+            </Link>
           </li>
         </ul>
       </nav>

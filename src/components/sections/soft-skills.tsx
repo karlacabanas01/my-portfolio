@@ -1,34 +1,48 @@
-import React from "react";
+import {
+  FaComments,
+  FaLightbulb,
+  FaUsers,
+  FaClock,
+  FaTasks,
+  FaBrain,
+} from "react-icons/fa";
 
 const softSkills = [
-  { name: "Comunicación", img: "img/comunicacion.avif" },
-  { name: "Trabajo en equipo", img: "img/trabajo.avif" },
-  { name: "Liderazgo", img: "img/lider.avif" },
-  { name: "Adaptabilidad", img: "img/adaptabilidad.jpg" },
-  { name: "Resolución de problemas", img: "img/resolucion.avif" },
-  { name: "Creatividad", img: "img/creatividad.avif" },
+  {
+    name: "Comunicación",
+    icon: <FaComments className="text-blue-500 text-2xl" />,
+  },
+  {
+    name: "Creatividad",
+    icon: <FaLightbulb className="text-yellow-500 text-2xl" />,
+  },
+  {
+    name: "Trabajo en Equipo",
+    icon: <FaUsers className="text-green-500 text-2xl" />,
+  },
+  {
+    name: "Gestión del Tiempo",
+    icon: <FaClock className="text-purple-500 text-2xl" />,
+  },
+  { name: "Organización", icon: <FaTasks className="text-red-500 text-2xl" /> },
+  {
+    name: "Pensamiento Crítico",
+    icon: <FaBrain className="text-indigo-500 text-2xl" />,
+  },
 ];
 
-const SoftSkills: React.FC = () => {
+const SoftSkillsTags: React.FC = () => {
   return (
-    <section id="soft-skills" className="text-center py-16 bg-custom-white">
-      <h2 className="text-4xl font-bold mb-8 text-custom-pink">SOFT SKILLS</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-        {softSkills.map((skill, index) => (
+    <section className="w-screen flex flex-col  px-4">
+      <div className="flex flex-wrap gap-4  w-full ">
+        {softSkills.map((skill) => (
           <div
-            key={index}
-            className="flex flex-col items-center justify-center p-6 border border-gray-200 shadow-md rounded-lg bg-white transition transform hover:scale-105 hover:shadow-lg"
+            key={skill.name}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-800 text- font-semibold rounded-full 
+            shadow-md hover:bg-custom-pink hover:text-white transition duration-300"
           >
-            <div className="flex items-center justify-center w-24 h-24 mb-4 rounded-full bg-gray-100">
-              <img
-                src={skill.img}
-                alt={skill.name}
-                className="w-20 h-20 rounded-full object-cover"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-custom-black">
-              {skill.name}
-            </h3>
+            {skill.icon}
+            <span>{skill.name}</span>
           </div>
         ))}
       </div>
@@ -36,4 +50,4 @@ const SoftSkills: React.FC = () => {
   );
 };
 
-export default SoftSkills;
+export default SoftSkillsTags;
