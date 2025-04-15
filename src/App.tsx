@@ -2,23 +2,24 @@ import React from "react";
 import Header from "./components/common/header";
 import About from "./components/sections/about";
 import HardSkills from "./components/sections/skills";
-import SoftSkills from "./components/sections/soft-skills";
 import Projects from "./components/sections/proyects";
-import Contact from "./components/sections/contact";
-import Footer from "./components/sections/footer";
+import Footer from "./components/common/footer";
 import "./styles.css";
+import ExperienceTimeline from "./components/sections/experiences";
+import BlogSection from "./components/sections/blogs";
 const App: React.FC = () => {
   return (
     <div className="text-black">
       <Header />
       <main className="container mx-auto py-8">
-        <div>
-          <About />
-        </div>
+        <About />
 
         <HardSkills />
         <Projects />
-        <Contact />
+        {/* Experiencia */}
+        <ExperienceTimeline />
+        {/* Blogs que he hecho */}
+        <BlogSection />
       </main>
       <Footer />
     </div>
