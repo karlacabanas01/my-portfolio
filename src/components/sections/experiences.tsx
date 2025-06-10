@@ -7,7 +7,7 @@ const icons = [<FaLaptopCode />, <FaServer />, <BiBarChartAlt2 />];
 const sections = [
   {
     title: "FRONT - END",
-    date: "Enero 2023 - Actualidad",
+    date: "Enero 2023 - Mayo 2025",
     roles: [
       {
         title: "Software Engineer - Kranio",
@@ -24,6 +24,11 @@ const sections = [
         description:
           "Desarrollo de páginas web responsivas bajo design system de la compañía. Implementación de HTML5, CSS Módulos, React, Next.js y TypeScript.",
       },
+            {
+        title: "Frontend Developer Movile - Banco Popular",
+        description:
+          "Desarrollo de aplicación móvil utilizando SwiftUI en colaboración con un equipo multidisciplinario. Implementación de vistas reactivas.",
+      },
     ],
   },
   {
@@ -39,7 +44,7 @@ const sections = [
   },
   {
     title: "DATA ANALYTICS",
-    date: "2023 - Actualidad",
+    date: "Septiembre 2023 - Enero 2024",
     roles: [
       {
         title: "Data Analyst - Banco Popular",
@@ -54,8 +59,8 @@ const ExperienceTimeline = () => {
   const [activeSection, setActiveSection] = useState(0);
 
   return (
-    <div className="border border-slate-200 rounded-lg p-8 my-10 bg-white transition-all duration-700 ease-in-out flex flex-col items-center">
-      <h2 className="text-center text-2xl font-bold text-custom-pink mb-8">
+    <div id="experience" className="border border-slate-200 rounded-lg p-8 my-10 bg-white transition-all duration-700 ease-in-out flex flex-col items-center">
+      <h2 className="text-center text-2xl font-bold text-custom-pink mb-8 pt-10">
         EXPERIENCE
       </h2>
 

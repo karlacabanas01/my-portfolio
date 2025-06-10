@@ -16,8 +16,10 @@ const App: React.FC = () => {
 
         <HardSkills />
         <Projects />
+
         {/* Experiencia */}
         <ExperienceTimeline />
+        
         {/* Blogs que he hecho */}
         <BlogSection />
       </main>

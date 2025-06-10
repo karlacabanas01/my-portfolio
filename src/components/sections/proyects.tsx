@@ -52,8 +52,8 @@ const projects = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="text-center py-16 bg-custom-white">
-      <h2 className="text-4xl font-bold mb-8 text-custom-pink">PROYECTOS</h2>
+    <section id="projects" className="text-center py-16 bg-custom-white pt-10">
+      <h2 className="text-4xl font-bold mb-8 text-custom-pink pt-10">PROYECTOS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
         {projects.map((project) => (
           <a

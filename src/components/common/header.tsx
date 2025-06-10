@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import { Link } from "react-scroll";
+import { useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +12,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link
-              to="/"
+              to="inicio"
               smooth={true}
               duration={500}
               className="cursor-pointer"
@@ -23,7 +23,7 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Navegación escritorio */}
           <nav className="hidden md:flex space-x-6">
             <Link
               to="about"
@@ -31,7 +31,7 @@ const Header = () => {
               duration={500}
               className="text-white hover:text-pink-500 transition duration-300 cursor-pointer"
             >
-              Sobre Mi
+              Sobre mí
             </Link>
             <Link
               to="skills"
@@ -39,7 +39,7 @@ const Header = () => {
               duration={500}
               className="text-white hover:text-pink-500 transition duration-300 cursor-pointer"
             >
-              Mis habilidades
+              Habilidades
             </Link>
             <Link
               to="projects"
@@ -50,49 +50,36 @@ const Header = () => {
               Proyectos
             </Link>
             <Link
-              to="contact"
+              to="experience"
               smooth={true}
               duration={500}
               className="text-white hover:text-pink-500 transition duration-300 cursor-pointer"
             >
-              Contacto
+              Experiencia
+            </Link>
+            <Link
+              to="blog"
+              smooth={true}
+              duration={500}
+              className="text-white hover:text-pink-500 transition duration-300 cursor-pointer"
+            >
+              Blogs
             </Link>
           </nav>
 
+          {/* Botón mobile */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-pink-500 focus:outline-none"
             >
               {isOpen ? (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
             </button>
@@ -100,7 +87,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Menú móvil */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-md transition-all duration-500 ease-in-out">
           <nav className="px-4 pt-2 pb-4 space-y-2">
@@ -110,7 +97,7 @@ const Header = () => {
               duration={500}
               className="block text-gray-600 hover:text-pink-500 transition duration-300 cursor-pointer"
             >
-              Sobre Mi
+              Sobre mí
             </Link>
             <Link
               to="skills"
@@ -129,12 +116,20 @@ const Header = () => {
               Proyectos
             </Link>
             <Link
-              to="contact"
+              to="experience"
               smooth={true}
               duration={500}
               className="block text-gray-600 hover:text-pink-500 transition duration-300 cursor-pointer"
             >
               Experiencia
+            </Link>
+            <Link
+              to="blog"
+              smooth={true}
+              duration={500}
+              className="block text-gray-600 hover:text-pink-500 transition duration-300 cursor-pointer"
+            >
+              Blog
             </Link>
           </nav>
         </div>

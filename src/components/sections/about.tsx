@@ -10,10 +10,10 @@ const About: React.FC = () => {
     >
       {/* Contenedor de texto (50% del ancho en pantallas grandes) */}
       <div className="md:w-1/2 pb-16">
-        <h1 className="text-4xl font-bold mb-4 text-custom-pink">Conóceme</h1>
+        <h1 className="text-4xl font-bold mb-4 text-custom-pink pt-10">Conóceme</h1>
         <TypingTitle />
         <p className="text-lg md:text-xl leading-relaxed text-custom-text-dark">
-          Actualmente, cuento con <b>2 años de experiencia</b> como
+          Actualmente, cuento con <b>más de 2 años de experiencia</b> como
           desarrolladora frontend, especializándome en{" "}
           <b>React, TypeScript y Tailwind CSS</b>. Me apasiona crear
           aplicaciones web optimizadas y seguir aprendiendo. Actualmente, estoy
