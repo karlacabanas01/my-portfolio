@@ -1,56 +1,111 @@
 import React from "react";
 import TypingTitle from "../effects/typing-effect";
 import { Link } from "react-scroll";
+import { FaArrowRight, FaCode, FaTerminal, FaDownload } from "react-icons/fa";
 
 const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative flex flex-col md:flex-row justify-between items-center text-center md:text-left py-12 px-4 md:px-16 bg-custom-white"
+      className="relative w-full py-16 md:py-24 px-6 md:px-16 bg-slate-50 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12"
     >
-      {/* Contenedor de texto (50% del ancho en pantallas grandes) */}
-      <div className="md:w-1/2 pb-16">
-        <h1 className="text-4xl font-bold mb-4 text-custom-pink pt-10">Conóceme</h1>
-        <TypingTitle />
-        <p className="text-lg md:text-xl leading-relaxed text-custom-text-dark">
-          Actualmente, cuento con <b>más de 2 años de experiencia</b> como
-          desarrolladora frontend, especializándome en{" "}
-          <b>React, TypeScript y Tailwind CSS</b>. Me apasiona crear
-          aplicaciones web optimizadas y seguir aprendiendo. Actualmente, estoy
-          profundizando en <b>Node.js</b> ⭐.
+      <div
+        className="absolute inset-0 z-0 opacity-40"
+        style={{
+          backgroundImage: "radial-gradient(#cbd5e1 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
+        }}
+      ></div>
+
+      <div className="absolute top-10 right-10 text-9xl text-gray-200 font-mono opacity-20 rotate-12 select-none -z-10">
+        {"{ }"}
+      </div>
+
+      <div className="w-full md:w-1/2 z-10 text-center md:text-left order-2 md:order-1">
+        <div className="inline-flex items-center gap-2 py-2 px-4 rounded-md bg-[#1e1e1e] text-green-400 text-xs md:text-sm font-mono mb-6 shadow-lg border border-gray-700">
+          <FaTerminal className="text-xs text-gray-400" />
+          <span className="text-blue-400 font-bold">root@karcabcas</span>
+          <span className="text-white">:</span>
+          <span className="text-yellow-400">~/portfolio</span>
+          <span className="text-white">$</span>
+          <span className="animate-pulse">_</span>
+        </div>
+
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-gray-800 leading-tight">
+          La lógica detrás de <br className="hidden md:block" />
+          <span className="text-custom-pink font-mono bg-pink-50 px-2 rounded-lg decoration-wavy underline decoration-pink-300">
+            &lt;KarCabCas /&gt;
+          </span>
+        </h2>
+
+        <div className="mb-6 text-xl md:text-2xl font-medium text-gray-600 h-8 md:h-auto font-mono">
+          <TypingTitle />
+        </div>
+
+        <p className="text-base md:text-lg leading-relaxed text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0">
+          Cuento con{" "}
+          <span className="text-gray-900 font-bold border-b-2 border-custom-pink/50">
+            más de 3 años de experiencia
+          </span>{" "}
+          escribiendo código limpio y escalable.
+          <br className="hidden md:block mb-3" />
+          Mi stack principal es <b>React & Next.js</b>, pero actualmente diseño
+          arquitecturas <b>Full Stack</b> robustas integrando{" "}
+          <b>Java y WebLogic</b> para el sector bancario. ⭐
         </p>
 
-        <Link
-          to="projects"
-          smooth={true}
-          duration={800}
-          offset={-50}
-          className="cursor-pointer inline-block bg-custom-pink text-white font-bold py-2 px-4 rounded-full mt-4 hover:bg-pink-600"
-        >
-          Ver Proyectos
-        </Link>
+        <div className="flex flex-wrap justify-center md:justify-start gap-4">
+          <Link
+            to="projects"
+            smooth={true}
+            duration={800}
+            offset={-50}
+            className="group relative w-full sm:w-56 inline-flex items-center justify-center bg-gray-900 text-white font-bold py-3 px-6 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-custom-pink/40 hover:-translate-y-1 cursor-pointer"
+          >
+            <span className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-custom-pink to-purple-500"></span>
+            <span>Ver Proyectos</span>
+            <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300 text-custom-pink" />
+          </Link>
+
+          <a
+            href="/CV-KARLA-CABANAS-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="CV-Karla-Cabanas-FullStack.pdf"
+            className="w-full sm:w-56 inline-flex items-center justify-center bg-white text-gray-700 border border-gray-300 font-bold py-3 px-6 rounded-lg hover:bg-gray-50 hover:border-custom-pink hover:text-custom-pink transition-all duration-300 shadow-sm cursor-pointer"
+          >
+            <FaDownload className="mr-2 text-sm" />
+            <span>Descargar CV</span>
+          </a>
+        </div>
       </div>
 
-      <div className="md:w-1/2 flex justify-center md:justify-end">
-        <img
-          src="img/profile.jpeg"
-          alt="Karla Cabañas"
-          className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg border-4 border-custom-pink"
-        />
-      </div>
+      <div className="w-full md:w-1/2 flex justify-center relative mt-4 md:mt-0 order-1 md:order-2 mb-8 md:mb-0">
+        <div className="relative w-64 h-64 md:w-80 md:h-80 flex-shrink-0">
+          <div className="absolute inset-0 border-2 border-dashed border-gray-300 rounded-full animate-spin-slow"></div>
 
-      {/* Barra SVG al final */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <svg
-          viewBox="0 0 1440 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 43.9999C106.667 43.9999 213.333 7.99994 320 7.99994C426.667 7.99994 533.333 43.9999 640 43.9999C746.667 43.9999 853.333 7.99994 960 7.99994C1066.67 7.99994 1173.33 43.9999 1280 43.9999C1386.67 43.9999 1440 19.0266 1440 9.01329V100H0V43.9999Z"
-            className="fill-current text-gray-300"
-          ></path>
-        </svg>
+          <div className="absolute inset-0 bg-gradient-to-br from-custom-pink/20 to-purple-500/20 rounded-full blur-xl transform translate-x-2 translate-y-2"></div>
+
+          <img
+            src="img/profile.jpeg"
+            alt="Karla Cabañas"
+            className="relative w-full h-full rounded-full object-cover shadow-2xl z-10 border-4 border-white"
+          />
+
+          <div className="absolute -bottom-2 -left-2 md:bottom-4 md:-left-6 bg-white/95 backdrop-blur-md border border-white/50 p-3 rounded-xl shadow-xl z-20 flex items-center gap-3">
+            <div className="bg-gray-900 p-2 rounded-lg text-custom-pink font-mono text-xl">
+              <FaCode />
+            </div>
+            <div className="text-left">
+              <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider font-mono">
+                Role
+              </p>
+              <p className="text-sm font-bold text-gray-800 font-mono">
+                Full Stack Eng.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

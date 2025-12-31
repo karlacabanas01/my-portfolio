@@ -1,112 +1,184 @@
-import React from "react";
+import { useState } from "react";
 
-const blogs = [
+const localBlogs = [
   {
-    title: "Aprendiendo Frontend Parte 2: Herramientas, estilos y buenas prácticas",
-    link: "https://www.kranio.io/blog/aprendiendo-front-end-parte-2-herramientas-estilos-y-buenas-practicas",
-    description:
-      "Descubre herramientas clave, consejos de estilos y buenas prácticas esenciales para mejorar tu desarrollo frontend.",
+    id: 1,
+    title: "Optimización_React_Hooks",
+    date: "24 Oct 2025",
+    content: (
+      <>
+        <h3 className="text-xl font-bold mb-4">
+          ¿Cuándo usar useMemo y useCallback?
+        </h3>
+        <p className="mb-4">
+          Uno de los errores más comunes al trabajar con React es el uso
+          excesivo de los hooks de optimización. No todo necesita ser
+          memorizado. De hecho, usar <code>useMemo</code> en cálculos simples
+          puede ser más costoso que volver a ejecutar la función.
+        </p>
+        <h4 className="font-bold mt-4">La Regla de Oro:</h4>
+        <ul className="list-disc list-inside mb-4 ml-4">
+          <li>
+            Usa <b>useMemo</b> solo para cálculos computacionalmente costosos.
+          </li>
+          <li>
+            Usa <b>useCallback</b> cuando pases funciones como props a
+            componentes hijos memorizados.
+          </li>
+        </ul>
+      </>
+    ),
   },
   {
-    title: "Guía básica para comenzar en Frontend (JS, React, TypeScript, Next.js)",
-    link: "https://www.kranio.io/blog/inicia-tu-camino-en-el-front-end-guia-basica-para-javascript-react-typescript-y-next-js",
-    description:
-      "Una guía completa para quienes inician en el mundo frontend usando tecnologías modernas como React y Next.js.",
+    id: 2,
+    title: "Estructura_Carpetas_NextJS",
+    date: "10 Nov 2025",
+    content: (
+      <>
+        <h3 className="text-xl font-bold mb-4">
+          Organizando un proyecto escalable
+        </h3>
+        <p className="mb-4">
+          Con la llegada del <b>App Router</b> en Next.js 13+, la estructura
+          cambió drásticamente. Una estructura recomendada para proyectos
+          grandes:
+        </p>
+        <div className="bg-gray-100 p-4 rounded-md font-mono text-sm mb-4 border border-gray-300">
+          src/
+          <br />
+          ├── app/ (Rutas)
+          <br />
+          ├── components/ (UI)
+          <br />
+          ├── lib/ (Lógica)
+          <br />
+          └── types/ (TS)
+        </div>
+      </>
+    ),
   },
   {
-    title: "Errores comunes al comenzar como Frontend Developer",
-    link: "https://www.kranio.io/blog/errores-comunes-al-empezar-como-front-end",
-    description:
-      "Evita estos errores frecuentes que muchos desarrolladores enfrentan al comenzar su carrera en frontend.",
-  },
-  {
-    title: "Componentes reutilizables con Tailwind CSS y CSS",
-    link: "https://www.kranio.io/blog/componentes-reutilizables-con-tailwind-css-y-css-comparativa-y-usos-practicos",
-    description:
-      "Aprende a crear componentes reutilizables y escalables usando Tailwind CSS y técnicas modernas de CSS.",
-  },
-  {
-    title: "Tailwind: Más allá del CSS tradicional",
-    link: "https://www.kranio.io/blog/tailwind-mas-alla-del-css",
-    description:
-      "Explora el poder de Tailwind CSS y cómo puede optimizar tu flujo de trabajo en desarrollo frontend.",
-  },
-  {
-    title: "CSS Parte 4: Preprocesadores y frameworks",
-    link: "https://www.kranio.io/blog/introduccion-a-css-parte-4-preprocesadores-y-frameworks-para-un-desarrollo-web-eficiente",
-    description:
-      "Conoce los preprocesadores CSS como Sass y los frameworks más utilizados para mejorar la eficiencia en tus estilos.",
-  },
-  {
-    title: "CSS Parte 3: Animaciones para mejorar la UX",
-    link: "https://www.kranio.io/blog/introduccion-a-css-parte-3-animaciones-css-para-mejorar-la-experiencia-del-usuario",
-    description:
-      "Implementa animaciones efectivas con CSS para ofrecer una experiencia de usuario más atractiva y fluida.",
-  },
-  {
-    title: "CSS Parte 2: Flexbox, Grid y Media Queries",
-    link: "https://www.kranio.io/blog/introduccion-a-css-parte-2-flexbox-grid-layout-y-media-queries-para-profesionales-del-diseno-web",
-    description:
-      "Profundiza en las técnicas de maquetación modernas con CSS para mejorar tus diseños web.",
-  },
-  {
-    title: "CSS Parte 1: Todo lo que necesitas saber para empezar",
-    link: "https://www.kranio.io/blog/introduccion-a-css-todo-lo-que-necesitas-saber-para-empezar-a-disenar",
-    description:
-      "Inicia tu camino en el mundo del CSS con los conceptos fundamentales que todo desarrollador debe dominar.",
-  },
-  {
-    title: "Testing unitario en Frontend",
-    link: "https://www.kranio.io/blog/testing-unitario-frontend",
-    description:
-      "Aprende a implementar pruebas unitarias para asegurar el correcto funcionamiento de tus componentes frontend.",
-  },
-  {
-    title: "Introducción al Testing E2E",
-    link: "https://www.kranio.io/blog/introduccion-al-testing-e2e",
-    description:
-      "Una guía práctica para comenzar con pruebas de extremo a extremo en tus aplicaciones frontend.",
-  },
-  {
-    title: "Docker Parte 2: Automatiza tus contenedores",
-    link: "https://www.kranio.io/blog/domina-docker-compose-parte-2-automatiza-tus-contenedores-facilmente",
-    description:
-      "Optimiza tu flujo de trabajo automatizando contenedores con Docker en proyectos frontend y fullstack.",
-  },
-  {
-    title: "Guía rápida de Docker: comandos y conceptos clave",
-    link: "https://www.kranio.io/blog/guia-rapida-de-docker-comandos-y-conceptos-claves",
-    description:
-      "Domina los comandos esenciales de Docker y comprende los conceptos base para comenzar con contenedores.",
+    id: 3,
+    title: "CSS_Moderno_vs_Legacy",
+    date: "05 Dic 2025",
+    content: (
+      <>
+        <h3 className="text-xl font-bold mb-4">Tailwind CSS vs CSS Modules</h3>
+        <p className="mb-4">
+          <b>¿Por qué Tailwind?</b> La principal ventaja no es escribir menos
+          código, sino dejar de inventar nombres de clases. Sin embargo, CSS
+          Modules sigue siendo excelente para animaciones complejas.
+        </p>
+      </>
+    ),
   },
 ];
 
+const MacFolderIcon = () => (
+  <svg
+    viewBox="0 0 100 100"
+    className="w-24 h-24 drop-shadow-md transition-all duration-300 transform group-hover:scale-110 group-hover:drop-shadow-xl"
+  >
+    <path
+      d="M10,25 L40,25 L50,15 L90,15 C95.5,15 100,19.5 100,25 L100,85 C100,90.5 95.5,95 90,95 L10,95 C4.5,95 0,90.5 0,85 L0,35 C0,29.5 4.5,25 10,25 Z"
+      fill="#4B5563"
+      className="transition-colors duration-300 group-hover:fill-gray-700"
+    />
+
+    <path
+      d="M0,40 L100,40 L100,85 C100,90.5 95.5,95 90,95 L10,95 C4.5,95 0,90.5 0,85 Z"
+      fill="url(#grayGradient)"
+      opacity="0.9"
+    />
+    <defs>
+      <linearGradient id="grayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop
+          offset="0%"
+          stopColor="#9CA3AF"
+          className="transition-all duration-300"
+        />
+        <stop
+          offset="100%"
+          stopColor="#1F2937"
+          className="transition-all duration-300"
+        />
+      </linearGradient>
+    </defs>
+  </svg>
+);
 
 export default function BlogSection() {
+  const [selectedBlog, setSelectedBlog] = useState<
+    (typeof localBlogs)[0] | null
+  >(null);
+
   return (
-    <section id="blog" className="bg-white py-12 px-6 md:px-12">
-      <h2 className="text-3xl font-bold text-center mb-8 pt-10">📝 Blogs Técnicos</h2>
-      <div className="grid gap-8 md:grid-cols-3">
-        {blogs.map((blog, index) => (
+    <section id="blog" className="bg-gray-50 py-20 px-6 md:px-12 min-h-[600px]">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Artículos & Recursos
+        </h2>
+        <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+          Compartiendo aprendizajes, guías y buenas prácticas sobre desarrollo
+          Full Stack.
+        </p>
+      </div>
+
+      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 justify-items-center">
+        {localBlogs.map((blog) => (
           <div
-            key={index}
-            className="border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between h-full"
+            key={blog.id}
+            onClick={() => setSelectedBlog(blog)}
+            className="group flex flex-col items-center cursor-pointer w-32"
           >
-            <div>
-              <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
-              <p className="text-gray-600 mb-4">{blog.description}</p>
+            <MacFolderIcon />
+            <div className="mt-3 text-center w-full">
+              <span className="text-gray-700 font-medium text-sm px-2 py-1 rounded-md group-hover:bg-custom-pink group-hover:text-white transition-colors duration-200 block truncate">
+                {blog.title}
+              </span>
+              <span className="text-gray-400 text-xs mt-1 block">
+                {blog.date}
+              </span>
             </div>
-            <a
-              href={blog.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline font-medium mt-auto"
-            >
-              Leer más
-            </a>
           </div>
         ))}
       </div>
+
+      {selectedBlog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+            onClick={() => setSelectedBlog(null)}
+          ></div>
+          <div className="relative bg-white w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden animate-fade-in-up">
+            <div className="bg-gray-100 border-b border-gray-300 px-4 py-3 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setSelectedBlog(null)}
+                  className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 transition-colors"
+                ></button>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <div className="text-xs font-bold text-gray-600 font-mono">
+                {selectedBlog.title}.md
+              </div>
+              <div className="w-10"></div>
+            </div>
+            <div className="p-8 max-h-[70vh] overflow-y-auto text-gray-800 leading-relaxed">
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                {selectedBlog.title.replace(/_/g, " ")}
+              </h1>
+              <p className="text-sm text-gray-400 mb-6 border-b pb-4">
+                Publicado el {selectedBlog.date}
+              </p>
+              <div className="prose prose-blue max-w-none">
+                {selectedBlog.content}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

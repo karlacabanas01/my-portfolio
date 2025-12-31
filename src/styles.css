@@ -2,17 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 :root {
   --custom-black: #000000;
   --custom-white: #ffffff;
   --custom-pink: #ff69b4; /* Rosado principal */
   --custom-gray: #e0e0e0; /* Gris neutro */
   --custom-text-dark: #333333; /* Texto oscuro */
-}
-img {
-  border: 4px solid var(--custom-pink);
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .skill-card {

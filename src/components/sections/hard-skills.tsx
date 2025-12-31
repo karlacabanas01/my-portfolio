@@ -1,67 +1,121 @@
-import { FaCode, FaServer, FaTools } from "react-icons/fa";
+import {
+  FaLaptopCode,
+  FaServer,
+  FaTools,
+  FaTerminal,
+  FaUsers,
+} from "react-icons/fa";
 
 interface Skill {
   name: string;
-  level: "Basic" | "Intermediate" | "Advanced";
-  percentage: number;
+  level: "Básico" | "Intermedio" | "Avanzado" | "Nativo";
 }
 
 const frontendSkills: Skill[] = [
-  { name: "React", level: "Intermediate", percentage: 60 },
-  { name: "Next.js", level: "Intermediate", percentage: 60 },
-  { name: "Tailwind CSS", level: "Advanced", percentage: 80 },
-  { name: "Styled Components", level: "Intermediate", percentage: 50 },
-  { name: "HTML5", level: "Advanced", percentage: 80 },
-  { name: "CSS3", level: "Advanced", percentage: 80 },
-  { name: "Material UI", level: "Intermediate", percentage: 60 },
+  { name: "React", level: "Avanzado" },
+  { name: "Next.js", level: "Avanzado" },
+  { name: "TypeScript", level: "Avanzado" },
+  { name: "Tailwind CSS", level: "Avanzado" },
+  { name: "HTML5 / CSS3", level: "Avanzado" },
+  { name: "Storybook", level: "Intermedio" },
 ];
 
 const backendSkills: Skill[] = [
-  { name: "NodeJS", level: "Basic", percentage: 30 },
-  { name: "Docker", level: "Intermediate", percentage: 50 },
-  { name: "MongoDB", level: "Intermediate", percentage: 50 },
-  { name: "Neo4j", level: "Basic", percentage: 30 },
-  { name: "Firebase", level: "Intermediate", percentage: 40 },
-  { name: "Laravel", level: "Basic", percentage: 20 },
+  { name: "NodeJS", level: "Intermedio" },
+  { name: "Java 8", level: "Intermedio" },
+  { name: "WebLogic", level: "Intermedio" },
+  { name: "Maven", level: "Intermedio" },
+  { name: "REST APIs", level: "Avanzado" },
+  { name: "Docker", level: "Intermedio" },
 ];
 
 const toolsSkills: Skill[] = [
-  { name: "Git", level: "Advanced", percentage: 80 },
-  { name: "Jest", level: "Basic", percentage: 30 },
-  { name: "Cypress", level: "Basic", percentage: 30 },
-  { name: "React Testing Library", level: "Basic", percentage: 30 },
-  { name: "SCRUM", level: "Intermediate", percentage: 50 },
-  { name: "Jira", level: "Intermediate", percentage: 50 },
-  { name: "ClickUp", level: "Intermediate", percentage: 40 },
-  { name: "Postman", level: "Intermediate", percentage: 60 },
+  { name: "Git & GitHub", level: "Avanzado" },
+  { name: "Jira / SCRUM", level: "Avanzado" },
+  { name: "Postman", level: "Avanzado" },
+  { name: "Jest / RTL", level: "Intermedio" },
+  { name: "Cypress", level: "Intermedio" },
+  { name: "GitHub Actions", level: "Intermedio" },
 ];
 
-const SkillCategory: React.FC<{
+const softSkills: Skill[] = [
+  { name: "Comunicación Efectiva", level: "Nativo" },
+  { name: "Trabajo en Equipo", level: "Nativo" },
+  { name: "Pensamiento Crítico", level: "Nativo" },
+  { name: "Resolución Problemas", level: "Nativo" },
+  { name: "Adaptabilidad", level: "Nativo" },
+  { name: "Gestión del Tiempo", level: "Nativo" },
+];
+
+// --- COMPONENTE DE ETIQUETA ---
+const SkillTag = ({ skill }: { skill: Skill }) => {
+  const isHighlight = skill.level === "Avanzado" || skill.level === "Nativo";
+
+  return (
+    <div
+      className={`
+      group flex items-center justify-between px-4 py-3 rounded-lg border transition-all duration-300
+      ${
+        isHighlight
+          ? "bg-white border-gray-200 hover:border-custom-pink hover:shadow-md hover:shadow-pink-100"
+          : "bg-gray-50 border-gray-100 hover:bg-white hover:border-gray-300"
+      }
+    `}
+    >
+      <span
+        className={`font-semibold ${
+          isHighlight
+            ? "text-gray-800 group-hover:text-custom-pink"
+            : "text-gray-600"
+        }`}
+      >
+        {skill.name}
+      </span>
+
+      <span
+        className={`
+        text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider
+        ${
+          isHighlight
+            ? "bg-pink-50 text-custom-pink border border-pink-100"
+            : "bg-gray-200 text-gray-600 border border-gray-300"
+        }
+      `}
+      >
+        {skill.level}
+      </span>
+    </div>
+  );
+};
+
+const SkillCategory = ({
+  title,
+  subtitle,
+  skills,
+  icon,
+}: {
   title: string;
+  subtitle: string;
   skills: Skill[];
   icon: JSX.Element;
-}> = ({ title, skills, icon }) => {
+}) => {
   return (
-    <div className="p-6 bg-white border border-gray-200 shadow-md rounded-lg w-full">
-      <div className="flex items-center justify-center gap-2 mb-4">
-        {icon}
-        <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+    <div className="bg-white rounded-2xl p-8 shadow-xl shadow-gray-100 border border-gray-100 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 h-full">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-full -z-0 transition-colors group-hover:bg-pink-50"></div>
+      <div className="relative z-10 mb-8 flex items-start justify-between">
+        <div>
+          <h3 className="text-2xl font-bold text-gray-800 group-hover:text-custom-pink transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-gray-400 font-mono mt-1">{subtitle}</p>
+        </div>
+        <div className="p-3 bg-gray-50 rounded-xl text-custom-pink text-2xl group-hover:scale-110 transition-transform shadow-sm">
+          {icon}
+        </div>
       </div>
-
-      <div className="space-y-3">
+      <div className="relative z-10 grid grid-cols-1 gap-3">
         {skills.map((skill) => (
-          <div key={skill.name}>
-            <div className="flex justify-between text-gray-800 font-medium">
-              <p>{skill.name}</p>
-              <p className="text-sm text-gray-600">{skill.level}</p>
-            </div>
-            <div className="w-full bg-gray-200 h-2 rounded-full">
-              <div
-                className="bg-custom-pink h-2 rounded-full"
-                style={{ width: `${skill.percentage}%` }}
-              ></div>
-            </div>
-          </div>
+          <SkillTag key={skill.name} skill={skill} />
         ))}
       </div>
     </div>
@@ -70,27 +124,58 @@ const SkillCategory: React.FC<{
 
 const SkillsSection: React.FC = () => {
   return (
-    <section className="w-full py-10 px-2.5 flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-custom-pink text-center mb-8">
-        Mis Habilidades
-      </h2>
+    <section id="skills" className="w-full py-24 px-4 bg-white relative">
+      <div
+        className="absolute inset-0 z-0 opacity-30"
+        style={{
+          backgroundImage: "radial-gradient(#e5e7eb 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      ></div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
-        <SkillCategory
-          title="Front-end"
-          skills={frontendSkills}
-          icon={<FaCode className="text-2xl text-blue-500" />}
-        />
-        <SkillCategory
-          title="Back-end"
-          skills={backendSkills}
-          icon={<FaServer className="text-2xl text-green-500" />}
-        />
-        <SkillCategory
-          title="Herramientas"
-          skills={toolsSkills}
-          icon={<FaTools className="text-2xl text-yellow-500" />}
-        />
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* --- CAMBIO DE TÍTULO --- */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-mono mb-4 border border-gray-200">
+            <FaTerminal className="text-custom-pink" />
+            <span>$ list stack --verbose</span>
+          </div>
+          {/* Título más profesional */}
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Stack <span className="text-custom-pink">Tecnológico</span>
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Herramientas, lenguajes y metodologías que utilizo para construir
+            software de calidad.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <SkillCategory
+            title="Frontend Core"
+            subtitle="Ui / Ux & Architecture"
+            skills={frontendSkills}
+            icon={<FaLaptopCode />}
+          />
+          <SkillCategory
+            title="Backend & Cloud"
+            subtitle="Server / API / Deploy"
+            skills={backendSkills}
+            icon={<FaServer />}
+          />
+          <SkillCategory
+            title="DevOps & Tools"
+            subtitle="Workflow / QA / Agile"
+            skills={toolsSkills}
+            icon={<FaTools />}
+          />
+          <SkillCategory
+            title="Soft Skills"
+            subtitle="Leadership / Communication"
+            skills={softSkills}
+            icon={<FaUsers />}
+          />
+        </div>
       </div>
     </section>
   );
