@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import TypingTitle from "../effects/typing-effect";
 import { Link } from "react-scroll";
 import { FaArrowRight, FaCode, FaTerminal, FaDownload } from "react-icons/fa";
 
 const About: React.FC = () => {
+  const [isImageLoading, setIsImageLoading] = useState(true);
+
   return (
     <section
       id="about"
@@ -86,12 +88,18 @@ const About: React.FC = () => {
 
           <div className="absolute inset-0 bg-gradient-to-br from-custom-pink/20 to-purple-500/20 rounded-full blur-xl transform translate-x-2 translate-y-2"></div>
 
+          {isImageLoading && (
+            <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-full border-4 border-white shadow-2xl z-20"></div>
+          )}
+
           <img
             src="img/profile.jpeg"
             alt="Karla Cabañas"
-            className="relative w-full h-full rounded-full object-cover shadow-2xl z-10 border-4 border-white"
+            onLoad={() => setIsImageLoading(false)}
+            className={`relative w-full h-full rounded-full object-cover shadow-2xl z-10 border-4 border-white transition-opacity duration-700
+            ${isImageLoading ? "opacity-0" : "opacity-100"} 
+        `}
           />
-
           <div className="absolute -bottom-2 -left-2 md:bottom-4 md:-left-6 bg-white/95 backdrop-blur-md border border-white/50 p-3 rounded-xl shadow-xl z-20 flex items-center gap-3">
             <div className="bg-gray-900 p-2 rounded-lg text-custom-pink font-mono text-xl">
               <FaCode />

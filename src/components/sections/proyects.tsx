@@ -43,7 +43,7 @@ const projects = [
   {
     name: "Listado de Pokemones",
     description: "Buscador optimizado consumiendo la PokeAPI con SSR.",
-    url: "https://nextjs-pokedex-chi.vercel.app/",
+    url: "https://pokedex-react-ts-main.vercel.app",
     category: "Frontend",
     tags: ["Next.js", "SSR", "PokeAPI"],
   },
@@ -53,6 +53,14 @@ const projects = [
     url: "https://skeleton-ten-rho.vercel.app/",
     category: "UX / Tech",
     tags: ["React", "Performance", "Animations"],
+  },
+  {
+    name: "Punto Café",
+    description:
+      "Página web original para cafetería, diseñada y desarrollada completamente por mí.",
+    url: "https://page-coffe-gold.vercel.app/",
+    category: "Frontend / UI",
+    tags: ["React", "Original Design", "CSS"],
   },
 ];
 
