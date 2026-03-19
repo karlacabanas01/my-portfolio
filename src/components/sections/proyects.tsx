@@ -62,17 +62,25 @@ const projects = [
     category: "Frontend / UI",
     tags: ["React", "Original Design", "CSS"],
   },
+  {
+    name: "Milokira Plantas",
+    description:
+      "Página web creada para mi emprendimiento personal con una interfaz para administrador oculta.",
+    url: "https://milokira-catalogo.vercel.app/",
+    category: "Frontend / UI",
+    tags: ["React", "Original Design", "CSS"],
+  },
 ];
 
 const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   const [imageState, setImageState] = useState<"loading" | "loaded" | "error">(
-    project.img ? "loaded" : "loading"
+    project.img ? "loaded" : "loading",
   );
 
   const imageUrl = project.img
     ? project.img
     : `https://api.microlink.io/?url=${encodeURIComponent(
-        project.url
+        project.url,
       )}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800&waitFor=3000`;
 
   return (
