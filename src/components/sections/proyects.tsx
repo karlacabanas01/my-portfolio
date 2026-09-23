@@ -7,7 +7,32 @@ import {
   FaImage,
 } from "react-icons/fa";
 
-const projects = [
+type Project = {
+  name: string;
+  description: string;
+  url: string;
+  category: string;
+  img?: string;
+  tags: string[];
+};
+
+const projects: Project[] = [
+  {
+    name: "Milokira Plantas",
+    description:
+      "Página web creada para mi emprendimiento personal con una interfaz para administrador oculta.",
+    url: "https://milokira-catalogo.vercel.app/",
+    category: "Frontend / UI",
+    tags: ["React", "Original Design", "CSS"],
+  },
+  {
+    name: "Prego Coffee House",
+    description:
+      "Sitio web para cafetería de especialidad y panadería artesanal en Talca.",
+    url: "https://pregocoffeehouse.cl/",
+    category: "Frontend / UI",
+    tags: ["Next.js", "SEO", "Responsive"],
+  },
   {
     name: "Academia Bluewater",
     description:
@@ -17,28 +42,19 @@ const projects = [
     tags: ["AWS CloudFront", "React", "UX/UI"],
   },
   {
-    name: "Acuarela App",
-    description:
-      "Aplicación SPA alojada en S3 con alto rendimiento y bajo costo.",
-    url: "http://acuarela-app-karcabcas.s3-website-us-east-1.amazonaws.com",
-    category: "Frontend / AWS",
-    img: "img/proyectos/acuarela-app.png",
-    tags: ["AWS S3", "React", "Tailwind"],
-  },
-  {
-    name: "Diario de Gratitud",
-    description: "App de bienestar minimalista con persistencia de datos.",
-    url: "http://diario-gratitud-karla.s3-website-us-east-1.amazonaws.com",
-    category: "Frontend / AWS",
-    img: "img/proyectos/diario-app.png",
-    tags: ["React", "LocalStorage", "AWS S3"],
-  },
-  {
     name: "Harry Potter App",
     description: "Experiencia mágica inmersiva. Consumo de API en tiempo real.",
     url: "https://my-harry-potter-app.vercel.app/",
     category: "Frontend",
     tags: ["Next.js 14", "Tailwind", "API"],
+  },
+  {
+    name: "Punto Café",
+    description:
+      "Página web original para cafetería, diseñada y desarrollada completamente por mí.",
+    url: "https://page-coffe-gold.vercel.app/",
+    category: "Frontend / UI",
+    tags: ["React", "Original Design", "CSS"],
   },
   {
     name: "Listado de Pokemones",
@@ -54,25 +70,9 @@ const projects = [
     category: "UX / Tech",
     tags: ["React", "Performance", "Animations"],
   },
-  {
-    name: "Punto Café",
-    description:
-      "Página web original para cafetería, diseñada y desarrollada completamente por mí.",
-    url: "https://page-coffe-gold.vercel.app/",
-    category: "Frontend / UI",
-    tags: ["React", "Original Design", "CSS"],
-  },
-  {
-    name: "Milokira Plantas",
-    description:
-      "Página web creada para mi emprendimiento personal con una interfaz para administrador oculta.",
-    url: "https://milokira-catalogo.vercel.app/",
-    category: "Frontend / UI",
-    tags: ["React", "Original Design", "CSS"],
-  },
 ];
 
-const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   const [imageState, setImageState] = useState<"loading" | "loaded" | "error">(
     project.img ? "loaded" : "loading",
   );
